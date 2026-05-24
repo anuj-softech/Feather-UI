@@ -1,0 +1,40 @@
+{
+  "type": "button",
+  "width": 140,
+  "height": 190,
+  "background_color": "#1E293B",
+  "border_radius": 10,
+  "focused_background_color": "#334155",
+  "focused_border_color": "#38BDF8",
+  "focused_border_width": 2,
+  "focused_glow_color": "#38BDF8",
+  "focused_glow_radius": 20,
+  "children": [
+    {
+      "type": "linear_layout",
+      "orientation": "vertical",
+      "width": "match_parent",
+      "height": "match_parent",
+      "children": [
+        {
+          "id": "card_image",
+          "type": "image_view",
+          "width": "match_parent",
+          "height": 140,
+          "scale_type": "center_crop",
+          "border_radius": 10
+        },
+        {
+          "id": "card_title",
+          "type": "text_view",
+          "width": "match_parent",
+          "height": 50,
+          "text_size": 12,
+          "text_color": "#E2E8F0",
+          "gravity": "center",
+          "padding": 4
+        }
+      ]
+    }
+  ]
+}

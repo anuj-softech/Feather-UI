@@ -1,0 +1,154 @@
+{
+  "movies": [
+    {
+      "id": "038001",
+      "title": "300 Rise of an Empire",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038001.jpg"
+    },
+    {
+      "id": "038002",
+      "title": "Elysium",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038002.jpg"
+    },
+    {
+      "id": "038003",
+      "title": "Man Of Steel",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038003.jpg"
+    },
+    {
+      "id": "038004",
+      "title": "Thor: The Dark World",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038004.jpg"
+    },
+    {
+      "id": "038005",
+      "title": "The Wolverine",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038005.jpg"
+    },
+    {
+      "id": "038006",
+      "title": "White House Down",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038006.jpg"
+    },
+    {
+      "id": "038007",
+      "title": "Black Rock",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038007.jpg"
+    },
+    {
+      "id": "038008",
+      "title": "Star Trek Into Darkness",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038008.jpg"
+    },
+    {
+      "id": "038009",
+      "title": "300 Rise of an Empire",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038009.jpg"
+    },
+    {
+      "id": "038010",
+      "title": "World War Z",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038010.jpg"
+    },
+    {
+      "id": "038011",
+      "title": "Star Trek",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038011.jpg"
+    },
+    {
+      "id": "038012",
+      "title": "Hidden in the Woods",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038012.jpg"
+    },
+    {
+      "id": "038013",
+      "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038013.jpg"
+    },
+    {
+      "id": "038014",
+      "title": "Joy",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038014.jpg"
+    },
+    {
+      "id": "038015",
+      "title": "Before I Fall",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038015.jpg"
+    },
+    {
+      "id": "038016",
+      "title": "Wonder Woman",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038016.jpg"
+    },
+    {
+      "id": "038017",
+      "title": "Underworld Awakening",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038017.jpg"
+    },
+    {
+      "id": "038018",
+      "title": "Doctor Strange",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038018.jpg"
+    },
+    {
+      "id": "038019",
+      "title": "Hanna",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038019.jpg"
+    },
+    {
+      "id": "038020",
+      "title": "Teenage Mutant Ninja Turtles: Out of the Shadows",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038020.jpg"
+    },
+    {
+      "id": "038021",
+      "title": "Wolves",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038021.jpg"
+    },
+    {
+      "id": "038022",
+      "title": "The Host",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038022.jpg"
+    },
+    {
+      "id": "038023",
+      "title": "Conan the Barbarian",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038023.jpg"
+    },
+    {
+      "id": "038024",
+      "title": "Abattoir",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038024.jpg"
+    },
+    {
+      "id": "038025",
+      "title": "Abattoir",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038025.jpg"
+    },
+    {
+      "id": "038026",
+      "title": "The Mortal Instruments: City of Bones",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038026.jpg"
+    },
+    {
+      "id": "038027",
+      "title": "City of Bones",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038027.jpg"
+    },
+    {
+      "id": "038028",
+      "title": "City of Bones",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038028.jpg"
+    },
+    {
+      "id": "038029",
+      "title": "City of Bones",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038029.jpg"
+    },
+    {
+      "id": "038030",
+      "title": "City of Bones",
+      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038030.jpg"
+    }
+  ]
+}

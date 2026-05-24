@@ -1,0 +1,660 @@
+{
+  "type": "frame_layout",
+  "width": "match_parent",
+  "height": "match_parent",
+  "background_color": "#0B0C0E",
+  "children": [
+    {
+      "id": "backdrop",
+      "type": "image_view",
+      "width": "match_parent",
+      "height": "match_parent",
+      "scale_type": "center_crop",
+      "alpha": 0.2,
+      "src": ""
+    },
+    {
+      "type": "linear_layout",
+      "orientation": "vertical",
+      "width": "match_parent",
+      "height": "match_parent",
+      "margin_left": 308,
+      "padding_top": 40,
+      "gap": 12,
+      "padding_bottom": 40,
+      "padding_right": 48,
+      "children": [
+        {
+          "id": "show_title",
+          "type": "text_view",
+          "text": "LOADING MOVIE...",
+          "text_size": 44,
+          "text_color": "#FFFFFFFF",
+          "font_style": "bold"
+        },
+        {
+          "type": "linear_layout",
+          "orientation": "horizontal",
+          "gap": 16,
+          "children": [
+            {
+              "id": "show_year",
+              "type": "text_view",
+              "text": "2026",
+              "text_size": 15,
+              "text_color": "#94A3B8"
+            },
+            {
+              "id": "show_rating",
+              "type": "text_view",
+              "text": "PG-13",
+              "text_size": 13,
+              "text_color": "#10B981",
+              "font_style": "bold",
+              "border_color": "#10B981",
+              "border_width": 1,
+              "padding_left": 6,
+              "padding_right": 6,
+              "padding_top": 2,
+              "padding_bottom": 2,
+              "border_radius": 4
+            },
+            {
+              "id": "show_duration",
+              "type": "text_view",
+              "text": "2h 10m",
+              "text_size": 15,
+              "text_color": "#94A3B8"
+            },
+            {
+              "id": "show_quality",
+              "type": "text_view",
+              "text": "Ultra HD 4K",
+              "text_size": 11,
+              "text_color": "#64748B",
+              "border_color": "#475569",
+              "border_width": 1,
+              "padding_left": 6,
+              "padding_right": 6,
+              "padding_top": 2,
+              "padding_bottom": 2,
+              "border_radius": 4
+            }
+          ]
+        },
+        {
+          "id": "show_description",
+          "type": "text_view",
+          "text": "Select a movie from the collection below to display its artwork, synopsis, and details in the Apple TV launcher overlay.",
+          "text_size": 17,
+          "text_color": "#CBD5E1",
+          "width": 660
+        },
+        {
+          "type": "linear_layout",
+          "orientation": "horizontal",
+          "gap": 16,
+          "margin_top": 10,
+          "children": [
+            {
+              "id": "btn_play",
+              "type": "button",
+              "width": 160,
+              "height": 44,
+              "background_color": "#FFFFFFFF",
+              "border_radius": 8,
+              "gravity": "center",
+              "focused_background_color": "#E2E8F0",
+              "focused_glow_color": "#38BDF8",
+              "focused_glow_radius": 15,
+              "children": [
+                {
+                  "type": "text_view",
+                  "text": "▶  Play Now",
+                  "text_size": 15,
+                  "text_color": "#0F172A",
+                  "font_style": "bold"
+                }
+              ]
+            },
+            {
+              "id": "btn_episodes",
+              "type": "button",
+              "width": 120,
+              "height": 44,
+              "background_color": "#1E293B",
+              "border_radius": 8,
+              "gravity": "center",
+              "focused_background_color": "#334155",
+              "focused_glow_color": "#38BDF8",
+              "focused_glow_radius": 15,
+              "children": [
+                {
+                  "type": "text_view",
+                  "text": "Trailer",
+                  "text_size": 15,
+                  "text_color": "#FFFFFFFF"
+                }
+              ]
+            },
+            {
+              "id": "btn_mylist",
+              "type": "button",
+              "width": 150,
+              "height": 44,
+              "background_color": "#1E293B",
+              "border_radius": 8,
+              "focused_background_color": "#334155",
+              "focused_glow_color": "#38BDF8",
+              "focused_glow_radius": 15,
+              "children": [
+                {
+                  "type": "linear_layout",
+                  "orientation": "horizontal",
+                  "width": "match_parent",
+                  "height": "match_parent",
+                  "children": [
+                    {
+                      "type": "image_view",
+                      "width": 16,
+                      "height": 16,
+                      "src": "ic_heart_smile",
+                      "tint_color": "#FFFFFFFF",
+                      "margin_top": 14,
+                      "margin_left": 16
+                    },
+                    {
+                      "id": "txt_mylist",
+                      "type": "text_view",
+                      "text": "My List",
+                      "text_size": 15,
+                      "text_color": "#FFFFFFFF",
+                      "margin_left": 8,
+                      "margin_top": 12
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text_view",
+          "text": "Featured Movies",
+          "text_size": 20,
+          "text_color": "#FFFFFFFF",
+          "font_style": "bold",
+          "margin_top": 24
+        },
+        {
+          "id": "recommendations_list",
+          "type": "list_view",
+          "orientation": "horizontal",
+          "width": "match_parent",
+          "height": 220,
+          "gap": 16,
+          "scroll_alignment": "center",
+          "scroll_center_offset": "15%"
+        }
+      ]
+    },
+    {
+      "type": "linear_layout",
+      "orientation": "vertical",
+      "width": 260,
+      "height": "match_parent",
+      "background_color": "#A0101115",
+      "backdrop_blur": 4,
+      "border_radius": 20,
+      "margin_left": 16,
+      "margin_right": 16,
+      "margin_top": 16,
+      "margin_bottom": 16,
+      "padding": 20,
+      "gap": 8,
+      "children": [
+        {
+          "type": "linear_layout",
+          "orientation": "horizontal",
+          "gap": 8,
+          "margin_bottom": 16,
+          "children": [
+            {
+              "type": "image_view",
+              "width": 32,
+              "height": 32,
+              "border_radius": 16,
+              "background_color": "#EC4899"
+            },
+            {
+              "type": "text_view",
+              "text": "Christopher",
+              "text_size": 15,
+              "text_color": "#FFFFFFFF",
+              "font_style": "bold",
+              "margin_top": 6
+            },
+            {
+              "type": "text_view",
+              "text": "9:41 AM",
+              "text_size": 11,
+              "text_color": "#64748B",
+              "margin_left": 8,
+              "margin_top": 8
+            }
+          ]
+        },
+        {
+          "id": "menu_search",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_search",
+                  "tint_color": "#94A3B8",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Search",
+                  "text_size": 14,
+                  "text_color": "#94A3B8",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_home",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#20FFFFFF",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_home",
+                  "tint_color": "#FFFFFFFF",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Home",
+                  "text_size": 14,
+                  "text_color": "#FFFFFFFF",
+                  "font_style": "bold",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_appletv",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_tv",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Apple TV+",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_mls",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_sports_baseball",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "MLS Season Pass",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_sports",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_sports_baseball",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Sports",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_store",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_store",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Store",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_library",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_library_books",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Library",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text_view",
+          "text": "Channels & Apps",
+          "text_size": 12,
+          "text_color": "#475569",
+          "font_style": "bold",
+          "margin_top": 12,
+          "margin_left": 10
+        },
+        {
+          "id": "menu_max",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_hvac_max_defrost",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Max",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_prime",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_tv",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Prime Video",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_starz",
+          "type": "button",
+          "width": 220,
+          "height": 40,
+          "background_color": "#00000000",
+          "border_radius": 10,
+          "padding_left": 16,
+          "focused_background_color": "#FFFFFFFF",
+          "focused_text_color": "#0F172A",
+          "focused_tint_color": "#0F172A",
+          "focused_glow_color": "#38BDF8",
+          "focused_glow_radius": 15,
+          "children": [
+            {
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "width": "match_parent",
+              "height": "match_parent",
+              "children": [
+                {
+                  "type": "image_view",
+                  "width": 18,
+                  "height": 18,
+                  "src": "ic_star",
+                  "tint_color": "#CBD5E1",
+                  "margin_top": 11
+                },
+                {
+                  "type": "text_view",
+                  "text": "Starz",
+                  "text_size": 14,
+                  "text_color": "#CBD5E1",
+                  "margin_left": 12,
+                  "margin_top": 11
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
