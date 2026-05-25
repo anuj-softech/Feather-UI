@@ -4,6 +4,16 @@ FeatherUI is a **high-performance, ultra-lightweight rendering engine and UI fra
 
 ---
 
+## Documentation
+
+Comprehensive guides and api specifications are available under the [documetation](documetation) directory:
+
+- [Getting Started Guide](documetation/getting_started.md) - Setup, inflation, layout loading, and focus/click listeners.
+- [Element Reference Guide](documetation/element_reference.md) - Layout containers, base nodes, and widget behaviors.
+- [Properties & Troubleshooting Guide](documetation/properties_guide.md) - Complete JSON properties reference, common errors, and resolutions.
+
+---
+
 ## Demo Preview
 
 Here is a preview of the Apple TV / Android TV launcher dashboard built completely on FeatherUI, showcasing backdrop blurs, item grid/list recycling, and focus animations:
