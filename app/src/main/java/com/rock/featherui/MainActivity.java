@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFormat(android.graphics.PixelFormat.RGBA_8888);
         setContentView(R.layout.activity_main);
 
         featherUIView = findViewById(R.id.feather_ui_view);

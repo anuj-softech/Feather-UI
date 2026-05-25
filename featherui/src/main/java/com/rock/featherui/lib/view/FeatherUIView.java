@@ -59,6 +59,7 @@ public class FeatherUIView extends SurfaceView implements SurfaceHolder.Callback
 
     private void init() {
         getHolder().addCallback(this);
+        getHolder().setFormat(android.graphics.PixelFormat.RGBA_8888);
         setFocusable(true);
         setFocusableInTouchMode(true);
         AnimationEngine.setHostView(this);

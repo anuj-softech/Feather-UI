@@ -1,0 +1,28 @@
+FeatherUI Source-Available License Agreement
+
+Version 1.0
+
+Copyright (c) 2026 FeatherUI Authors. All rights reserved.
+
+By accessing, compiling, using, or contributing to the FeatherUI software (including all source code, templates, and libraries), you agree to be bound by the terms and conditions of this License Agreement. If you do not agree to these terms, do not use, compile, or copy this software.
+
+1. DEFINITIONS
+"Licensor" refers to the copyright holder and creator of FeatherUI.
+"Library" refers to the compiled binaries (AAR, JAR) produced by the FeatherUI project.
+"Source Code" refers to the raw, uncompiled Java, Kotlin, XML, JSON, and build scripts within this repository.
+"Contributor" refers to any individual or entity submitting code, documentation, or feedback to this repository.
+
+2. GRANT OF RIGHTS & PERMITTED USES
+* Free Application Integration: You are granted a free, worldwide, non-exclusive license to use the compiled Library (AAR/JAR) in any application (including commercial, personal, and educational projects) without charge, provided that the original credit and copyright notice of FeatherUI are retained in your application's documentation or credits.
+* Contribution & Development: Contributors are granted the right to clone, compile, and run the Source Code locally for the sole purpose of testing, debugging, and submitting pull requests to the official FeatherUI repository.
+
+3. RESTRICTIONS
+* No Copying or Redeployment of Source Code: You may not copy, extract, adapt, translate, or incorporate the Source Code (or portions of it) into another rendering library, UI framework, or proprietary organization codebase without the explicit written permission of the Licensor.
+* No Unauthorized Recompilation & Distribution: You may not compile the Source Code into a binary (AAR, JAR, or APK) for redistribution, sale, or sub-licensing to third parties under another name or brand. All public distributions of compiled binaries must originate from the official FeatherUI release channels.
+* No Competing Products: You may not use the Source Code, or any derivative work, to build a competing UI layout framework or software rendering engine.
+
+4. CONTRIBUTION TERMS
+By submitting a contribution (pull request, issue, or patch) to the FeatherUI repository, you hereby grant the Licensor a perpetual, irrevocable, worldwide, royalty-free, transferable license to use, modify, distribute, and sub-license your contribution as part of the FeatherUI project. You represent that you are the sole creator of the contribution and have the legal authority to grant these rights.
+
+5. NO WARRANTY
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES.

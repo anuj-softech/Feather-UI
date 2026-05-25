@@ -224,12 +224,42 @@ public class ImageViewNode extends VirtualNode {
         int[] pix = new int[w * h];
         bitmap.getPixels(pix, 0, w, 0, 0, w, h);
 
+        // 1. Premultiply color channels by alpha to avoid pastel/washed-out halos
+        for (int i = 0; i < pix.length; i++) {
+            int px = pix[i];
+            int a = (px >>> 24) & 0xFF;
+            if (a < 255) {
+                int red = (px >> 16)  & 0xFF;
+                int green = (px >> 8)   & 0xFF;
+                int blue =  px         & 0xFF;
+                red = (red * a) / 255;
+                green = (green * a) / 255;
+                blue = (blue * a) / 255;
+                pix[i] = (a << 24) | (red << 16) | (green << 8) | blue;
+            }
+        }
+
         // Chromium box-size formula for 3 passes that best fits sigma = radius/2
         // (mirrors blink::CalculateBoxSizes):  box ≈ sigma * 2 | 1 (odd)
         int r = Math.max(1, radius);
         for (int pass = 0; pass < 3; pass++) {
             boxBlurH(pix, w, h, r); // horizontal pass
             boxBlurV(pix, w, h, r); // vertical  pass
+        }
+
+        // 2. Unpremultiply color channels after blur pass to restore straight alpha representation
+        for (int i = 0; i < pix.length; i++) {
+            int px = pix[i];
+            int a = (px >>> 24) & 0xFF;
+            if (a > 0 && a < 255) {
+                int red = (px >> 16)  & 0xFF;
+                int green = (px >> 8)   & 0xFF;
+                int blue =  px         & 0xFF;
+                red = Math.min(255, (red * 255) / a);
+                green = Math.min(255, (green * 255) / a);
+                blue = Math.min(255, (blue * 255) / a);
+                pix[i] = (a << 24) | (red << 16) | (green << 8) | blue;
+            }
         }
 
         bitmap.setPixels(pix, 0, w, 0, 0, w, h);

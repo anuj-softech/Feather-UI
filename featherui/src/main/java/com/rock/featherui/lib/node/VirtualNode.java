@@ -69,6 +69,19 @@ public abstract class VirtualNode {
     public float innerShadowXPercent = 0.5f;
     public float innerShadowYPercent = 0.5f;
 
+    // Cached objects to avoid allocations during rendering
+    private android.graphics.RadialGradient cachedRadialGradient = null;
+    private int cachedInnerShadowColor = 0;
+    private float cachedInnerShadowX = -1f;
+    private float cachedInnerShadowY = -1f;
+    private float cachedInnerShadowR = -1f;
+    private final int[] cachedGradientColors = new int[2];
+    private final float[] cachedGradientStops = new float[] { 0.0f, 1.0f };
+
+    // Cached backdrop node to avoid tree traversal on every frame
+    private VirtualNode cachedBackdropNode = null;
+    private boolean backdropNodeResolved = false;
+
     private Path clipPath;
 
     // Interactivity callbacks
@@ -110,6 +123,21 @@ public abstract class VirtualNode {
     public void draw(Canvas canvas) {
         if ("gone".equalsIgnoreCase(visibility) || "invisible".equalsIgnoreCase(visibility)) return;
         if (alpha <= 0.01f) return;
+
+        // Occlusion culling: skip drawing if node is completely outside the screen/viewport bounds
+        VirtualNode root = this;
+        while (root.parent != null) {
+            root = root.parent;
+        }
+        int screenW = root.measuredWidth;
+        int screenH = root.measuredHeight;
+        if (screenW > 0 && screenH > 0) {
+            float pad = 100f * Math.max(scaleX, scaleY);
+            if (right + pad < 0 || left - pad > screenW ||
+                bottom + pad < 0 || top - pad > screenH) {
+                return;
+            }
+        }
 
         canvas.save();
 
@@ -190,12 +218,24 @@ public abstract class VirtualNode {
         float cy = top + measuredHeight * innerShadowYPercent;
         float r = innerShadowRadius > 0 ? innerShadowRadius : Math.max(measuredWidth, measuredHeight);
 
-        int[] colors = new int[] { 0x00000000, innerShadowColor };
-        float[] stops = new float[] { 0.0f, 1.0f };
+        if (cachedRadialGradient == null ||
+            innerShadowColor != cachedInnerShadowColor ||
+            cx != cachedInnerShadowX ||
+            cy != cachedInnerShadowY ||
+            r != cachedInnerShadowR) {
 
-        RadialGradient gradient = new RadialGradient(cx, cy, r, colors, stops, Shader.TileMode.CLAMP);
+            cachedInnerShadowColor = innerShadowColor;
+            cachedInnerShadowX = cx;
+            cachedInnerShadowY = cy;
+            cachedInnerShadowR = r;
+            cachedGradientColors[0] = 0x00000000;
+            cachedGradientColors[1] = innerShadowColor;
+
+            cachedRadialGradient = new android.graphics.RadialGradient(cx, cy, r, cachedGradientColors, cachedGradientStops, android.graphics.Shader.TileMode.CLAMP);
+        }
+
         Paint paint = ObjectPool.acquirePaint();
-        paint.setShader(gradient);
+        paint.setShader(cachedRadialGradient);
         paint.setStyle(Paint.Style.FILL);
 
         RectF rect = ObjectPool.acquireRectF();
@@ -232,9 +272,12 @@ public abstract class VirtualNode {
 
         // 1.5 Draw Backdrop Blur if set
         if (backdropBlur > 0f) {
-            VirtualNode backdropNode = findNodeInRootById("backdrop");
-            if (backdropNode instanceof ImageViewNode) {
-                ImageViewNode ivNode = (ImageViewNode) backdropNode;
+            if (!backdropNodeResolved) {
+                cachedBackdropNode = findNodeInRootById("backdrop");
+                backdropNodeResolved = true;
+            }
+            if (cachedBackdropNode instanceof ImageViewNode) {
+                ImageViewNode ivNode = (ImageViewNode) cachedBackdropNode;
                 Bitmap backdropBmp = ivNode.getBitmap();
                 if (backdropBmp != null) {
                     drawBackdropBlur(canvas, ivNode, backdropBmp);
@@ -313,32 +356,30 @@ public abstract class VirtualNode {
 
             if (subW > 0 && subH > 0) {
                 try {
-                    // ─── Chromium / Skia approach ──────────────────────────────────────
-                    // 1. Crop the exact sub-region from the FULL-RESOLUTION source bitmap
-                    //    → no downsampling, no bilinear upscale artefacts, no banding.
-                    // 2. Ensure ARGB_8888 (32-bit) colour depth throughout.
-                    // 3. Run 3 passes of separable box blur (H+V each).
-                    //    By CLT, 3 box convolutions ≈ true Gaussian to within 3% error.
-                    //    Each pass is O(1) per pixel via a sliding-window sum.
-                    // 4. Scale the blurred sub-region to fit the panel size using
-                    //    bilinear filtering (safe here because the image is already blurry,
-                    //    so sub-pixel details don't matter).
-                    // ───────────────────────────────────────────────────────────────────
+                    // Crop the exact sub-region from the source bitmap
                     Bitmap subBmp = Bitmap.createBitmap(bmp, sl, st, subW, subH);
 
-                    // Force 32-bit to prevent colour-depth banding
-                    if (subBmp.getConfig() != Bitmap.Config.ARGB_8888) {
-                        Bitmap tmp = subBmp.copy(Bitmap.Config.ARGB_8888, true);
-                        subBmp.recycle();
-                        subBmp = tmp;
-                    }
-
-                    Bitmap blurred = ImageViewNode.boxBlur(subBmp, Math.round(backdropBlur));
+                    // Downsample for dramatic performance improvement on CPU-bound blur
+                    int downsample = 4;
+                    int targetW = Math.max(1, subW / downsample);
+                    int targetH = Math.max(1, subH / downsample);
+                    Bitmap scaledSubBmp = Bitmap.createScaledBitmap(subBmp, targetW, targetH, true);
                     subBmp.recycle();
 
+                    // Force 32-bit to prevent colour-depth banding
+                    if (scaledSubBmp.getConfig() != Bitmap.Config.ARGB_8888) {
+                        Bitmap tmp = scaledSubBmp.copy(Bitmap.Config.ARGB_8888, true);
+                        scaledSubBmp.recycle();
+                        scaledSubBmp = tmp;
+                    }
+
+                    // Scale the blur radius proportionally to downsampled size
+                    float scaledBlurRadius = Math.max(1f, backdropBlur / downsample);
+                    Bitmap blurred = ImageViewNode.boxBlur(scaledSubBmp, Math.round(scaledBlurRadius));
+                    scaledSubBmp.recycle();
+
                     if (blurred != null) {
-                        // Scale to panel size only AFTER blurring (safe - blurry image
-                        // has no high-frequency detail that bilinear would destroy)
+                        // Scale to panel size only AFTER blurring
                         cachedBlurredSubBmp = Bitmap.createScaledBitmap(blurred, w, h, true);
                         blurred.recycle();
                     }
@@ -354,6 +395,8 @@ public abstract class VirtualNode {
             Paint paint = ObjectPool.acquirePaint();
             paint.setFilterBitmap(true);
             paint.setDither(true);
+            // Apply the alpha of the source backdrop image node (e.g. 0.2f -> 51 alpha)
+            paint.setAlpha(Math.round(backdropNode.alpha * 255));
 
             RectF dstRect = ObjectPool.acquireRectF();
             dstRect.set(left, top, right, bottom);
@@ -365,6 +408,13 @@ public abstract class VirtualNode {
                 p.addRoundRect(dstRect, borderRadius, borderRadius, Path.Direction.CW);
                 canvas.clipPath(p);
             }
+
+            // Draw a solid black background to completely block the sharp backdrop underneath
+            Paint blackPaint = ObjectPool.acquirePaint();
+            blackPaint.setColor(0xFF000000);
+            blackPaint.setStyle(Paint.Style.FILL);
+            canvas.drawRect(dstRect, blackPaint);
+            ObjectPool.release(blackPaint);
 
             // Draw the full blurred bitmap stretched to exactly cover (left,top,right,bottom).
             // Using the srcRect→dstRect overload guarantees correct alignment regardless of

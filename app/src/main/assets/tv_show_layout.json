@@ -25,152 +25,161 @@
       "padding_right": 48,
       "children": [
         {
-          "id": "show_title",
-          "type": "text_view",
-          "text": "LOADING MOVIE...",
-          "text_size": 44,
-          "text_color": "#FFFFFFFF",
-          "font_style": "bold"
-        },
-        {
           "type": "linear_layout",
-          "orientation": "horizontal",
-          "gap": 16,
+          "orientation": "vertical",
+          "width": "match_parent",
+          "gap": 12,
+          "height": "260",
           "children": [
             {
-              "id": "show_year",
+              "id": "show_title",
               "type": "text_view",
-              "text": "2026",
-              "text_size": 15,
-              "text_color": "#94A3B8"
+              "text": "LOADING MOVIE...",
+              "text_size": 44,
+              "text_color": "#FFFFFFFF",
+              "font_style": "bold"
             },
             {
-              "id": "show_rating",
-              "type": "text_view",
-              "text": "PG-13",
-              "text_size": 13,
-              "text_color": "#10B981",
-              "font_style": "bold",
-              "border_color": "#10B981",
-              "border_width": 1,
-              "padding_left": 6,
-              "padding_right": 6,
-              "padding_top": 2,
-              "padding_bottom": 2,
-              "border_radius": 4
-            },
-            {
-              "id": "show_duration",
-              "type": "text_view",
-              "text": "2h 10m",
-              "text_size": 15,
-              "text_color": "#94A3B8"
-            },
-            {
-              "id": "show_quality",
-              "type": "text_view",
-              "text": "Ultra HD 4K",
-              "text_size": 11,
-              "text_color": "#64748B",
-              "border_color": "#475569",
-              "border_width": 1,
-              "padding_left": 6,
-              "padding_right": 6,
-              "padding_top": 2,
-              "padding_bottom": 2,
-              "border_radius": 4
-            }
-          ]
-        },
-        {
-          "id": "show_description",
-          "type": "text_view",
-          "text": "Select a movie from the collection below to display its artwork, synopsis, and details in the Apple TV launcher overlay.",
-          "text_size": 17,
-          "text_color": "#CBD5E1",
-          "width": 660
-        },
-        {
-          "type": "linear_layout",
-          "orientation": "horizontal",
-          "gap": 16,
-          "margin_top": 10,
-          "children": [
-            {
-              "id": "btn_play",
-              "type": "button",
-              "width": 160,
-              "height": 44,
-              "background_color": "#FFFFFFFF",
-              "border_radius": 8,
-              "gravity": "center",
-              "focused_background_color": "#E2E8F0",
-              "focused_glow_color": "#38BDF8",
-              "focused_glow_radius": 15,
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "gap": 16,
               "children": [
                 {
+                  "id": "show_year",
                   "type": "text_view",
-                  "text": "▶  Play Now",
+                  "text": "2026",
                   "text_size": 15,
-                  "text_color": "#0F172A",
-                  "font_style": "bold"
+                  "text_color": "#94A3B8"
+                },
+                {
+                  "id": "show_rating",
+                  "type": "text_view",
+                  "text": "PG-13",
+                  "text_size": 13,
+                  "text_color": "#10B981",
+                  "font_style": "bold",
+                  "border_color": "#10B981",
+                  "border_width": 1,
+                  "padding_left": 6,
+                  "padding_right": 6,
+                  "padding_top": 2,
+                  "padding_bottom": 2,
+                  "border_radius": 4
+                },
+                {
+                  "id": "show_duration",
+                  "type": "text_view",
+                  "text": "2h 10m",
+                  "text_size": 15,
+                  "text_color": "#94A3B8"
+                },
+                {
+                  "id": "show_quality",
+                  "type": "text_view",
+                  "text": "Ultra HD 4K",
+                  "text_size": 11,
+                  "text_color": "#64748B",
+                  "border_color": "#475569",
+                  "border_width": 1,
+                  "padding_left": 6,
+                  "padding_right": 6,
+                  "padding_top": 2,
+                  "padding_bottom": 2,
+                  "border_radius": 4
                 }
               ]
             },
             {
-              "id": "btn_episodes",
-              "type": "button",
-              "width": 120,
-              "height": 44,
-              "background_color": "#1E293B",
-              "border_radius": 8,
-              "gravity": "center",
-              "focused_background_color": "#334155",
-              "focused_glow_color": "#38BDF8",
-              "focused_glow_radius": 15,
-              "children": [
-                {
-                  "type": "text_view",
-                  "text": "Trailer",
-                  "text_size": 15,
-                  "text_color": "#FFFFFFFF"
-                }
-              ]
+              "id": "show_description",
+              "type": "text_view",
+              "text": "Select a movie from the collection below to display its artwork, synopsis, and details in the Apple TV launcher overlay.",
+              "text_size": 17,
+              "text_color": "#CBD5E1",
+              "width": 660
             },
             {
-              "id": "btn_mylist",
-              "type": "button",
-              "width": 150,
-              "height": 44,
-              "background_color": "#1E293B",
-              "border_radius": 8,
-              "focused_background_color": "#334155",
-              "focused_glow_color": "#38BDF8",
-              "focused_glow_radius": 15,
+              "type": "linear_layout",
+              "orientation": "horizontal",
+              "gap": 16,
+              "margin_top": 10,
               "children": [
                 {
-                  "type": "linear_layout",
-                  "orientation": "horizontal",
-                  "width": "match_parent",
-                  "height": "match_parent",
+                  "id": "btn_play",
+                  "type": "button",
+                  "width": 160,
+                  "height": 44,
+                  "background_color": "#FFFFFFFF",
+                  "border_radius": 8,
+                  "gravity": "center",
+                  "focused_background_color": "#E2E8F0",
+                  "focused_glow_color": "#38BDF8",
+                  "focused_glow_radius": 15,
                   "children": [
                     {
-                      "type": "image_view",
-                      "width": 16,
-                      "height": 16,
-                      "src": "ic_heart_smile",
-                      "tint_color": "#FFFFFFFF",
-                      "margin_top": 14,
-                      "margin_left": 16
-                    },
-                    {
-                      "id": "txt_mylist",
                       "type": "text_view",
-                      "text": "My List",
+                      "text": "▶  Play Now",
                       "text_size": 15,
-                      "text_color": "#FFFFFFFF",
-                      "margin_left": 8,
-                      "margin_top": 12
+                      "text_color": "#0F172A",
+                      "font_style": "bold"
+                    }
+                  ]
+                },
+                {
+                  "id": "btn_episodes",
+                  "type": "button",
+                  "width": 120,
+                  "height": 44,
+                  "background_color": "#1E293B",
+                  "border_radius": 8,
+                  "gravity": "center",
+                  "focused_background_color": "#334155",
+                  "focused_glow_color": "#38BDF8",
+                  "focused_glow_radius": 15,
+                  "children": [
+                    {
+                      "type": "text_view",
+                      "text": "Trailer",
+                      "text_size": 15,
+                      "text_color": "#FFFFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "id": "btn_mylist",
+                  "type": "button",
+                  "width": 150,
+                  "height": 44,
+                  "background_color": "#1E293B",
+                  "border_radius": 8,
+                  "focused_background_color": "#334155",
+                  "focused_glow_color": "#38BDF8",
+                  "focused_glow_radius": 15,
+                  "children": [
+                    {
+                      "type": "linear_layout",
+                      "orientation": "horizontal",
+                      "width": "match_parent",
+                      "height": "match_parent",
+                      "children": [
+                        {
+                          "type": "image_view",
+                          "width": 16,
+                          "height": 16,
+                          "src": "ic_heart_smile",
+                          "tint_color": "#FFFFFFFF",
+                          "margin_top": 14,
+                          "margin_left": 16
+                        },
+                        {
+                          "id": "txt_mylist",
+                          "type": "text_view",
+                          "text": "My List",
+                          "text_size": 15,
+                          "text_color": "#FFFFFFFF",
+                          "margin_left": 8,
+                          "margin_top": 12
+                        }
+                      ]
                     }
                   ]
                 }
@@ -204,7 +213,7 @@
       "width": 260,
       "height": "match_parent",
       "background_color": "#A0101115",
-      "backdrop_blur": 4,
+      "backdrop_blur": 5,
       "border_radius": 20,
       "margin_left": 16,
       "margin_right": 16,

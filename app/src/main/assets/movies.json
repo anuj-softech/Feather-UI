@@ -2,8 +2,8 @@
   "movies": [
     {
       "id": "038001",
-      "title": "300 Rise of an Empire",
-      "poster": "https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/posters/038001.jpg"
+      "title": "PROJECT HAIL MARY",
+      "poster": "https://image.tmdb.org/t/p/w1280/RQqSXCtSxP1tUH9plhW06gNdHy.jpg"
     },
     {
       "id": "038002",

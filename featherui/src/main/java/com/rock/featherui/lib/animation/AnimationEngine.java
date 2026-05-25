@@ -1,6 +1,8 @@
 package com.rock.featherui.lib.animation;
 
 import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Choreographer;
 import com.rock.featherui.lib.node.VirtualNode;
 import com.rock.featherui.lib.view.FeatherUIView;
@@ -24,11 +26,12 @@ public class AnimationEngine {
     private static final List<NodeAnimation> activeAnimations = new ArrayList<>();
     private static boolean isTickerRunning = false;
     private static FeatherUIView hostView;
+    private static final Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private static final Choreographer.FrameCallback frameCallback = new Choreographer.FrameCallback() {
         @Override
         public void doFrame(long frameTimeNanos) {
-            long now = System.currentTimeMillis();
+            long now = frameTimeNanos / 1_000_000L;
             boolean hasPending = false;
             
             synchronized (activeAnimations) {
@@ -101,7 +104,8 @@ public class AnimationEngine {
             anim.property = property;
             anim.startValue = start;
             anim.endValue = end;
-            anim.startTime = System.currentTimeMillis();
+            // Use System.nanoTime() to align with Choreographer's frameTimeNanos timebase
+            anim.startTime = System.nanoTime() / 1_000_000L;
             anim.duration = duration;
             anim.easing = easing;
 
@@ -109,7 +113,7 @@ public class AnimationEngine {
 
             if (!isTickerRunning) {
                 isTickerRunning = true;
-                Choreographer.getInstance().postFrameCallback(frameCallback);
+                mainHandler.post(() -> Choreographer.getInstance().postFrameCallback(frameCallback));
             }
         }
     }
