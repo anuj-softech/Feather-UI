@@ -1,4 +1,4 @@
-# <img src="logo.png" alt="FeatherUI Logo" width="60" align="center"> FeatherUI
+# ![FeatherUI Logo](logo.png) FeatherUI
 
 FeatherUI is a **high-performance, ultra-lightweight rendering engine and UI framework** for Android, written from the ground up to mimic Chromium and Skia’s compositing architecture. Designed specifically for memory-constrained environments (like Android TV and legacy devices), FeatherUI runs on a high-speed, main-thread-independent rendering pipeline that delivers 60 FPS visual smoothness with a microscopic memory footprint.
 
@@ -8,9 +8,7 @@ FeatherUI is a **high-performance, ultra-lightweight rendering engine and UI fra
 
 Here is a preview of the Apple TV / Android TV launcher dashboard built completely on FeatherUI, showcasing backdrop blurs, item grid/list recycling, and focus animations:
 
-<p align="center">
-  <img src="documetation/demo1.png" alt="FeatherUI TV Dashboard Demo" width="90%">
-</p>
+![FeatherUI TV Dashboard Demo](documetation/demo1.png)
 
 ---
 
