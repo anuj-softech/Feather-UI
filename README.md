@@ -48,8 +48,7 @@ Traditional Android layouts (nested `ConstraintLayout`s, heavy `WebView` instanc
 | **Heap Memory Usage**       | ~80MB – 150MB                        | **< 15MB**                                 |
 | **Frame Render Time**       | 8ms – 16ms (often variable)          | **< 4.0ms** (highly consistent)            |
 | **Garbage Collector Churn** | Continuous allocations on scroll     | **0 allocations** (completely static loop) |
-| **Blur Performance (CPU)**  | CPU-bound bottlenecks (80+ms)        | **~3ms** (Separable Bilinear Box Blur)     |
-| **Color Precision**         | Default RGB_565 (creates banding)    | **RGBA_8888** (true 32-bit blending)       |
+| **Blur Performance (CPU)**  | CPU-bound bottlenecks (80+ms)        | **~3ms** (Separable Bilinear Box Blur)     
 
 ---
 
